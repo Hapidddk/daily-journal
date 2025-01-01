@@ -10,7 +10,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    include "koneksi.php"
+                    include "koneksi.php";
 
                     $hlm = (isset($_POST['hlm'])) ? $_POST['hlm'] : 1;
                     $limit = 3;
