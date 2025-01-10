@@ -57,7 +57,19 @@ if (!isset($_SESSION['username'])) {
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?page=article">Article</a>
             </li> 
-            <li class="nav-item dropdown">
+
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php?page=gallery">Gallery</a>
+            </li> 
+
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php?page=users">Users</a>
+            </li> 
+
+            <!-- <li><a href="gallery.php">Gallery</a>
+        </li> -->
+            
+        <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-danger fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <?= $_SESSION['username']?>
                 </a>
@@ -92,13 +104,13 @@ if (!isset($_SESSION['username'])) {
     <!-- footer begin -->
     <footer class="text-center p-5 bg-danger-subtle">
     <div>
-        <a href="https://www.instagram.com/udinusofficial"
+        <a href="https://www.instagram.com/hafidputranto_/profilecard/?igsh=M3ZnM2w2NTZqZDY="
         ><i class="bi bi-instagram h2 p-2 text-dark"></i
         ></a>
         <a href="https://twitter.com/udinusofficial"
         ><i class="bi bi-twitter h2 p-2 text-dark"></i
         ></a>
-        <a href="https://wa.me/+62812685577"
+        <a href="https://wa.me/+6285156026208"
         ><i class="bi bi-whatsapp h2 p-2 text-dark"></i
         ></a>
     </div>

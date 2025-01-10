@@ -42,6 +42,7 @@
         </div>
     </div>
 </div>
+
 <!-- Akhir Modal Tambah-->
 
 <script>
@@ -69,6 +70,7 @@ $(document).ready(function(){
 
 <?php
 include "upload_foto.php";
+
 
 //jika tombol simpan diklik
 if (isset($_POST['simpan'])) {

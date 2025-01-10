@@ -136,44 +136,46 @@ include "koneksi.php";
     <!-- article end -->
     <!-- gallery begin -->
     <section id="gallery" class="text-center p-5 bg-danger-subtle">
-      <div class="container">
-        <h1 class="fw-bold display-4 pb-3">gallery</h1>
-        <div id="carouselExample" class="carousel slide">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="img/Fotoalbum_ Von Sonnenschein bis Regen – der sechste Lauf 2019 _ ADAC Nürburgring Langstrecken-Serie.jpeg" class="d-block w-100" alt="..." />
+    <div class="container">
+        <h1 class="fw-bold display-4 pb-3">Gallery</h1>
+        
+        <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php
+                include "koneksi.php";
+                $sql = "SELECT * FROM gallery ORDER BY id ASC";
+                $hasil = $conn->query($sql);
+                $activeClass = "active"; // Set the first image as active
+                if ($hasil->num_rows > 0) {
+                    while ($row = $hasil->fetch_assoc()) {
+                        ?>
+                        <div class="carousel-item <?= $activeClass; ?>">
+                            <img src="img/<?= htmlspecialchars($row['gambar']); ?>" class="d-block w-100" alt="Gallery Image">
+                        </div>
+                        <?php
+                        // Remove the active class after the first item
+                        $activeClass = "";
+                    }
+                } else {
+                    echo '<p class="text-muted">Belum ada gambar</p>';
+                }
+                ?>
             </div>
-            <div class="carousel-item">
-              <img src="img/galery.jpeg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/Le Mans.jpeg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/img1.jpeg" class="d-block w-100" alt="..." />
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+            
+            <!-- Carousel controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
+
+
     <!-- gallery end -->
     <!-- schedule begin -->
     <section id="schedule" class="text-center p-5">
@@ -185,10 +187,10 @@ include "koneksi.php";
               <div class="card-header bg-danger text-white">SENIN</div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                  Etika Profesi<br />16.20-18.00 | H.4.4
+                  basis data<br />10.20-12.00 | D.2.M
                 </li>
                 <li class="list-group-item">
-                  Sistem Operasi<br />18.30-21.00 | H.4.8
+                  technopreneurship<br />12.30-14.10 | KULINO
                 </li>
               </ul>
             </div>
@@ -198,13 +200,13 @@ include "koneksi.php";
               <div class="card-header bg-danger text-white">SELASA</div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                  Pendidikan Kewarganegaraan<br />12.30-13.10 | Kulino
+                 sistem operasi<br />07.00-09.30 | H.4.10
                 </li>
                 <li class="list-group-item">
-                  Probabilitas dan Statistik<br />15.30-18.00 | H.4.9
+                 pemrograman berbasis web<br />10.20-12.00 | H.4.9
                 </li>
                 <li class="list-group-item">
-                  Kecerdasan Buatan<br />18.30-21.00 | H.4.11
+                Pendidikan Kewarganegaraan<br />12.30-13.10 | E.2
                 </li>
               </ul>
             </div>
@@ -214,7 +216,7 @@ include "koneksi.php";
               <div class="card-header bg-danger text-white">RABU</div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                  Manajemen Proyek Teknologi Informasi<br />15.30-18.00 | H.4.6
+                  Rekayasa Perangkat Lunak<br />07.00-09.30 | H.5.14
                 </li>
               </ul>
             </div>
@@ -224,13 +226,7 @@ include "koneksi.php";
               <div class="card-header bg-danger text-white">KAMIS</div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                  Bahasa Indonesia<br />12.30-14.10 | Kulino
-                </li>
-                <li class="list-group-item">
-                  Pendidikan Agama Islam<br />16.20-18.00 | Kulino
-                </li>
-                <li class="list-group-item">
-                  Penambangan Data<br />18.30-21.00 | H.4.9
+                  Basis  Data<br />08.40-10.20 | H.4.6
                 </li>
               </ul>
             </div>
@@ -240,7 +236,11 @@ include "koneksi.php";
               <div class="card-header bg-danger text-white">JUMAT</div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                  Pemrograman Web Lanjut<br />10.20-12.00 | D.2.K
+                  Logika Informatika<br />12.30-15.00 | H.4.10
+                </li>
+                
+                <li class="list-group-item">
+                  Porbabilitas Dan Statistik<br />15.30-18.00 | H.4.9
                 </li>
               </ul>
             </div>
@@ -263,7 +263,7 @@ include "koneksi.php";
         <div class="d-sm-flex align-items-center justify-content-center">
           <div class="p-3">
             <img
-              src="img/arthur.jpg"
+              src="img/red-dead-redemption-2-arthur-morgan.avif"
               class="rounded-circle border shadow"
               width="300"
             />

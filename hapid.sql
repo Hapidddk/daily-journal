@@ -48,10 +48,10 @@ INSERT INTO `article` (`id`, `judul`, `isi`, `tanggal`, `gambar`, `username`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mahasiswa`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `mahasiswa` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` text NOT NULL,
@@ -59,10 +59,10 @@ CREATE TABLE `mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `mahasiswa`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `mahasiswa` (`id`, `username`, `password`, `nohp`) VALUES
+INSERT INTO `user` (`id`, `username`, `password`, `nohp`) VALUES
 (1, 'ADMIN', 'e10adc3949ba59abbe56e057f20f883e', '01865214654');
 
 --
@@ -76,9 +76,9 @@ ALTER TABLE `article`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `mahasiswa`
+-- Indexes for table `user`
 --
-ALTER TABLE `mahasiswa`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`username`);
 
 --
