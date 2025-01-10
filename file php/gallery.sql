@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2024 at 05:28 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- Waktu pembuatan: 10 Jan 2025 pada 03.50
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,46 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article`
+-- Struktur dari tabel `gallery`
 --
 
-CREATE TABLE `article` (
+CREATE TABLE `gallery` (
   `id` int(11) NOT NULL,
-  `judul` text NOT NULL,
+  `judul` varchar(255) NOT NULL,
   `isi` text NOT NULL,
-  `tanggal` datetime NOT NULL,
   `gambar` text NOT NULL,
+  `tanggal` datetime NOT NULL,
   `username` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `article`
+-- Dumping data untuk tabel `gallery`
 --
 
-INSERT INTO `article` (`id`, `judul`, `isi`, `tanggal`, `gambar`, `username`) VALUES
-(1, 'perpustakaan kampus', 'lorem ipsum ', 'img/earth-1756274_1280.jpg', '2024-05-19', 'ADMIN'),
-(2, 'ruang kelas', 'this card lorem ipsum', '2121202144.jpg', '2024-05-22', ''),
-(3, 'kelompok belajar ', 'this is wider card lorem ipsum', '5646132069874.jpg', '2024-06-14', 'ADMIN');
+INSERT INTO `gallery` (`id`, `judul`, `isi`, `gambar`, `tanggal`, `username`) VALUES
+(0, '', '', '20250109095446.jpg', '2025-01-09 09:54:46', 'ADMIN');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `article`
+-- Indeks untuk tabel `gallery`
 --
-ALTER TABLE `article`
+ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `article`
---
-ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
